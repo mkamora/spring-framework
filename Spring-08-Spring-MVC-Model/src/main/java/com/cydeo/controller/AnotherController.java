@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/mentor")
-public class MentorController {
+@RequestMapping("/anothercontroller")
+public class AnotherController {
 
     @RequestMapping("/list")
     public String showTable(Model model) {
@@ -31,5 +31,4 @@ public class MentorController {
 
         return "/mentor/mentor-list";
     }
-
 }
