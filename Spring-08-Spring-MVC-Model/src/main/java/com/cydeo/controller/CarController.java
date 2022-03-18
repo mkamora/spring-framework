@@ -30,8 +30,8 @@ public class CarController {
         return "/car/car-information";
     }
 
-    @RequestMapping("/info3/{make}/{year}")
-    public String getCarInfo(@PathVariable String make, @PathVariable Integer year, Model model) {
+    @RequestMapping("/info3/{make}/{year}") //PathVariable cannot be flagged to be Required or Not - IT must always be provided.
+    public String getCarInfo(@PathVariable String make, @PathVariable(required = false) Integer year, Model model) {
         model.addAttribute("make", make);
         model.addAttribute("year", year);
         System.out.println(make);
