@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+</head>
+<body>
+
+<h2 style="color: rgba(0,0,255,0.81);text-align: center;font-family:tahoma">Welcome New Student</h2>
+
+<!--Displaying Values and Concatenation-->
+<h2 th:text="${'First Name: ' + students.get(0).firstName}"></h2>
+<h2 th:text="${'Last Name: ' + students.get(0).lastName}"></h2>
+<h2 th:text="${'Age: ' + students.get(0).age}"></h2>
+
+<!-- Link -->
+<a th:href="@{https://cydeo.com}" style="color: #ee00ff;font-family:tahoma">Cydeo Home Page</a>
+<br>
+<br>
+<a th:href="@{/student/welcome}" style="color: #ee00ff;font-family: Algerian;text-align-all: center">Welcome Student</a>
+
+<!-- Adding A hard coded Parameter to Link -->
+<br>
+<br>
+<a th:href="@{/student/welcome(id = 3)}">Link Parameter Hard Coded</a>
+
+<!-- Adding a changing Parameters to Link -->
+<br>
+<br>
+<a th:href="@{/student/welcome(id = ${students.get(0).firstName})}">Link Parameter Using Model</a>
+
+<br>
+<br>
+
+<!-- Iterations -->
+<ul style="color: #ee00ff;font-family:tahoma">
+    <li th:each="name:${students}" th:text="${name.getFirstName() +' '+ name.getLastName()}">Students List</li>
+</ul>
+
+
+</body>
+</html>
